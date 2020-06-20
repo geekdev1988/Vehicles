@@ -57,7 +57,7 @@ export class VehicleCreateComponent {
     debugger;
     this.http.post(this.baseUrl + 'api/VehicleDetails', vehicleData).subscribe(result => {
       this.createVehicleForm.reset();
-      console.log(this.vehicleTypes);
+      this.router.navigateByUrl('');
     }, error => console.error(error));
     console.warn('Your Vehicle has been created', vehicleData);
   }

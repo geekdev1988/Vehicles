@@ -29,16 +29,11 @@ namespace Vehicle.Controllers
 
         // GET: api/VehicleDetails/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<VehicleDetail>> GetVehicleDetail(long id)
+        public async Task<ActionResult<IEnumerable<VehicleDetail>>> GetVehicleDetail(long id)
         {
-            var vehicleDetail = await _context.VehicleDetail.FindAsync(id);
+            return await _context.VehicleDetail.Where(x=>x.VehicleType==id).ToListAsync();
 
-            if (vehicleDetail == null)
-            {
-                return NotFound();
-            }
-
-            return vehicleDetail;
+           
         }
 
         // PUT: api/VehicleDetails/5
