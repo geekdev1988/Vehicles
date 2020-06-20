@@ -1,0 +1,61 @@
+<form [formGroup]="createVehicleForm" (ngSubmit)="onSubmit(createVehicleForm.value)">
+  <div class="form-group row">
+    <label for="vehicleType" class="col-sm-2 col-form-label">Vehicle Type</label>
+    <div class="col-sm-10">
+      <mat-select class="form-control" placeholder="Vehicle Type" formControlName="VehicleType">
+        <mat-option *ngFor="let vehicleType of vehicleTypes" [value]="vehicleType.vehicleTypeId">
+          {{vehicleType.vehicleType}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="make" class="col-sm-2 col-form-label">Make</label>
+    <div class="col-sm-10">
+      <mat-select class="form-control" placeholder="Make" formControlName="make">
+        <mat-option *ngFor="let make of makes" [value]="make.id">
+          {{make.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="model" class="col-sm-2 col-form-label">Model</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="model" placeholder="Model" formControlName="model">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="engine" class="col-sm-2 col-form-label">Engine</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="engine" placeholder="Engine" formControlName="engine">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="doors" class="col-sm-2 col-form-label">Doors</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="doors" placeholder="Doors" formControlName="doors">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="wheels" class="col-sm-2 col-form-label">Wheels</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="wheels" placeholder="Wheels" formControlName="wheels">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="bodyType" class="col-sm-2 col-form-label">Body Type</label>
+    <div class="col-sm-10">
+      <mat-select class="form-control" placeholder="Body Type" formControlName="bodyType">
+        <mat-option *ngFor="let bodyType of bodyTypes" [value]="bodyType.name">
+          {{bodyType.name}}
+        </mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12 text-right">
+      <button type="submit" class="btn btn-primary">Create Vehicle</button>
+    </div>
+  </div>
+</form>

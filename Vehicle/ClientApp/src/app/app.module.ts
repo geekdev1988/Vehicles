@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
+import { VehicleCreateComponent } from './vehicle/create/vehicle-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,19 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    VehicleComponent
+    VehicleComponent,
+    VehicleCreateComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
     RouterModule.forRoot([
-      { path: '', component: VehicleComponent, pathMatch: 'full' }
+      { path: '', component: VehicleComponent, pathMatch: 'full' },
+      { path: 'vehicle/create', component: VehicleCreateComponent }
     ]),
     BrowserAnimationsModule
   ],
