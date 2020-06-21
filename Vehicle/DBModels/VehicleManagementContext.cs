@@ -19,14 +19,6 @@ namespace Vehicle.DBModels
         public virtual DbSet<VehicleDetail> VehicleDetail { get; set; }
         public virtual DbSet<VehicleMakeMaster> VehicleMakeMaster { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-NTGI2PQ\\SQLEXPRESS;Initial Catalog=VehicleManagement;Persist Security Info=True;User ID=sa;Password=123456");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

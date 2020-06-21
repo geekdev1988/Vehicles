@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Vehicle.DBModels
 {
@@ -12,7 +13,7 @@ namespace Vehicle.DBModels
 
         public int VehicleTypeId { get; set; }
         public string VehicleType { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<VehicleDetail> VehicleDetail { get; set; }
     }
 }

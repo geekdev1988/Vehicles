@@ -22,12 +22,13 @@
     </form>
   </div>
 </nav>
-<p *ngIf="!vehicles"><em>Loading...</em></p>
+<p *ngIf="!vehicles"><em>Please select Vehicle Category above</em></p>
+<p *ngIf="vehicles && (vehicles.length==0)"><em>No Vehicle Found in the selected Category</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="vehicles">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="vehicles && (vehicles.length>0)">
   <thead>
     <tr>
-      <th>Id</th>
+      <!--<th>Id</th>-->
       <th>Make</th>
       <th>Model</th>
       <th>Engine</th>
@@ -39,13 +40,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let vehicle of vehicles">
-      <td>{{ vehicle.id }}</td>
-      <td>{{ vehicle.make }}</td>
+      <!--<td>{{ vehicle.id }}</td>-->
+      <td>{{  vehicle.makeNavigation.vehicleMake }}</td>
       <td>{{ vehicle.model }}</td>
       <td>{{ vehicle.engine }}</td>
       <td>{{ vehicle.doors }}</td>
       <td>{{ vehicle.wheels }}</td>
-      <td>{{ vehicle.vehicleType }}</td>
+      <td>{{ vehicle.vehicleTypeNavigation.vehicleType }}</td>
       <td>{{ vehicle.bodyType }}</td>
     </tr>
   </tbody>

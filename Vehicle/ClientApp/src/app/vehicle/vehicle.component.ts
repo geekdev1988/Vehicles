@@ -16,10 +16,8 @@ export class VehicleComponent {
     private router: Router,
     @Inject('BASE_URL')  baseUrl: string) {
     this.apiUrl = baseUrl;
-    http.get<vehicleCategory[]>(baseUrl + 'VehicleCategoryMasters').subscribe(result => {
-      debugger;
-      this.vehicleTypes = result;
-      console.log(this.vehicleTypes);      
+    http.get<vehicleCategory[]>(baseUrl + 'VehicleCategoryMasters').subscribe(result => {      
+      this.vehicleTypes = result;         
     }, error => console.error(error));    
   }
   onVehicleSelection(data) {
@@ -27,7 +25,7 @@ export class VehicleComponent {
     this.selectedVehicleType = data.value;    
     this.http.get<Vehicle[]>(this.apiUrl + 'api/VehicleDetails/'+ this.selectedVehicleType).subscribe(result => {
       this.vehicles = result;
-      
+      console.log(result);
     }, error => console.error(error)); 
   }
   goToCreateVehicle() {

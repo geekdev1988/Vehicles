@@ -31,9 +31,7 @@ namespace Vehicle.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<VehicleDetail>>> GetVehicleDetail(long id)
         {
-            return await _context.VehicleDetail.Where(x=>x.VehicleType==id).ToListAsync();
-
-           
+            return await _context.VehicleDetail.Where(x=>x.VehicleType==id).Include(v => v.VehicleTypeNavigation).Include(m=>m.MakeNavigation).ToListAsync();
         }
 
         // PUT: api/VehicleDetails/5
