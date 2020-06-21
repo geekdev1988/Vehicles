@@ -22,16 +22,18 @@ export class VehicleCreateComponent {
     private formBuilder: FormBuilder,
     @Inject('BASE_URL') private baseUrl: string) {
     http.get<vehicleCategory[]>(baseUrl + 'VehicleCategoryMasters').subscribe(result => {
-      this.vehicleTypes = result;
-      this.makes = [
-        { id: 1, name: 'make1' },
-        { id: 2, name: 'make2' }
-      ];
+      this.vehicleTypes = result;    
       this.bodyTypes = [
         { id: 1, name: 'HatchBack' },
         { id: 2, name: 'Sedan' }
       ];
       console.log(this.vehicleTypes);
+    }, error => console.error(error));
+
+    http.get<any[]>(baseUrl + 'api/VehicleMakeMasters').subscribe(result => {
+      this.makes = result;
+     
+      console.log(this.makes);
     }, error => console.error(error));
 
     this.createVehicleForm = this.formBuilder.group({

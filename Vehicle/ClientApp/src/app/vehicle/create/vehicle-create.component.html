@@ -2,7 +2,7 @@
   <div class="form-group row">
     <label for="vehicleType" class="col-sm-2 col-form-label">Vehicle Type</label>
     <div class="col-sm-10">
-      <mat-select class="form-control" placeholder="Vehicle Type" formControlName="VehicleType">
+      <mat-select class="form-control" placeholder="Vehicle Type" formControlName="vehicleType">
         <mat-option *ngFor="let vehicleType of vehicleTypes" [value]="vehicleType.vehicleTypeId">
           {{vehicleType.vehicleType}}
         </mat-option>
@@ -13,8 +13,8 @@
     <label for="make" class="col-sm-2 col-form-label">Make</label>
     <div class="col-sm-10">
       <mat-select class="form-control" placeholder="Make" formControlName="make">
-        <mat-option *ngFor="let make of makes" [value]="make.id">
-          {{make.name}}
+        <mat-option *ngFor="let make of makes" [value]="make.vehicleMakeId">
+          {{make.vehicleMake}}
         </mat-option>
       </mat-select>
     </div>
